@@ -16,6 +16,19 @@ builder.Services.ConfigureSwaggerGen(setup =>
     });
 });
 
+var localOrigins = "LocalOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: localOrigins,
+        policy => 
+        {
+            policy.WithOrigins("http://localhost:4200");
+        }
+    );
+});
+
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -24,6 +37,7 @@ app.UseSwagger();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwaggerUI();
+    app.UseCors(localOrigins);
 }
 
 app.UseHttpsRedirection();
