@@ -14,7 +14,13 @@ namespace TomsPortfolioApi.Controllers
         }
 
         [HttpGet]
-        public UserInformation Get()
+        public IActionResult Get()
+        {
+            return Ok();
+        }
+
+        [HttpGet("stats")]
+        public UserInformation GetSiteStatistics()
         {
             return new()
             {
