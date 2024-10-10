@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace TomsPortfolioApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class UserController : ControllerBase
+    [Route("/")]
+    public class HomeController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-        public UserController(ILogger<UserController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
